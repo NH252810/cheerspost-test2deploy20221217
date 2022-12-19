@@ -76,16 +76,16 @@ all_group_popups = all_data["name"].values.tolist() # popup用の駅名配列
 all_group_latlngs = all_data.iloc[:,6:8].values.tolist() # 座標の2次元配列
 
 
-for i, row in df.iterrows():
-    pop=f"{row['name']}<br>ジャンル：{row['genre']}<br>Hotpepper{row['url']}"
+
 
 
 # darkblueのマーカーを全店舗の座標に差し、グループに追加
-for name, latlng in zip(all_group_popups, all_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="darkblue")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="darkblue")
     ).add_to(all_group)
 
 
@@ -104,12 +104,15 @@ asahi_group_popups = asahi_data["name"].values.tolist()
 asahi_group_latlngs = asahi_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(asahi_group_popups, asahi_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="gray")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="gray")
     ).add_to(asahi_group)
+
+
 
 
 
@@ -128,12 +131,14 @@ kirin_group_latlngs = kirin_data.iloc[:,6:8].values.tolist()
 
 
 
-for name, latlng in zip(kirin_group_popups, kirin_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="lightred")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="lightred")
     ).add_to(kirin_group)
+
 
 
 
@@ -151,14 +156,15 @@ ebis_group = FeatureGroup(name="ヱビス")
 ebis_group_popups = ebis_data["name"].values.tolist() 
 ebis_group_latlngs = ebis_data.iloc[:,6:8].values.tolist() 
 
-
-
-for name, latlng in zip(ebis_group_popups, ebis_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="orange")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="orange")
     ).add_to(ebis_group)
+
+
 
 
 
@@ -177,11 +183,12 @@ premium_group_popups = premium_data["name"].values.tolist()
 premium_group_latlngs = premium_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(premium_group_popups, premium_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="darkred")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="darkred")
     ).add_to(premium_group)
 
 
@@ -203,12 +210,14 @@ mlts_group_popups = mlts_data["name"].values.tolist()
 mlts_group_latlngs = mlts_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(mlts_group_popups, mlts_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="blue")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="blue")
     ).add_to(mlts_group)
+
 
 
 
@@ -227,12 +236,14 @@ hoeg_group_popups = hoeg_data["name"].values.tolist()
 hoeg_group_latlngs = hoeg_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(hoeg_group_popups, hoeg_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="gray", color="white")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="gray", color="white")
     ).add_to(hoeg_group)
+
 
 
 
@@ -251,12 +262,14 @@ corona_group_popups = corona_data["name"].values.tolist()
 corona_group_latlngs = corona_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(corona_group_popups, corona_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="beige")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="beige")
     ).add_to(corona_group)
+
 
 
 
@@ -275,12 +288,14 @@ guinness_group_popups = guinness_data["name"].values.tolist()
 guinness_group_latlngs = guinness_data.iloc[:,6:8].values.tolist() 
 
 
-for name, latlng in zip(guinness_group_popups, guinness_group_latlngs): 
+for i, row in df.iterrows():
+    pop=f"{row['name']}<br>ジャンル{row['genre']}<br>Hotpepper{row['url']}"
     folium.Marker(
-        location=latlng, 
-        popup = folium.Popup(pop, max_width=300),
-        icon = folium.Icon(icon="beer", prefix='fa', icon_color="white", color="black")
+        location=[row['lat'], row['lng']],
+        popup=folium.Popup(pop, max_width=300),
+        icon = folium.Icon(icon="glass",icon_color="white", color="black")
     ).add_to(guinness_group)
+
 
 
 
@@ -393,6 +408,7 @@ if bland_options == 'ギネス':
     st_folium(guinness_map, width=700, height=700)
     st.sidebar.write('大阪市北区のギネスビール1杯の最安値は、',guinness_min_price,'円です')
     st.sidebar.write('大阪市北区のギネスビール1杯の平均価格は、',guinness_mean_price,'円です')
+
 
 
 
